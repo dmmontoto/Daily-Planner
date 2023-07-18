@@ -53,7 +53,16 @@ $(function () {
     console.log(currentHour);
     var blockHour = parseInt($(this).attr('id'));
     console.log(blockHour);
+    if (currentHour > blockHour) {
+      $(this).attr('class', 'row time-block past');
+    } else if (currentHour === blockHour) {
+      $(this).attr('class', 'row time-block present');
+    } else {
+      $(this).attr('class', 'row time-block future');
+    }
   })
+
+  
 });
 
 // Have global variable containing current time
