@@ -30,11 +30,11 @@ $(function () {
   var hour10 = $('#hour-10');
   var hour11 = $('#hour-11');
   var hour12 = $('#hour-12');
-  var hour1 = $('#hour-1');
-  var hour2 = $('#hour-2');
-  var hour3 = $('#hour-3');
-  var hour4 = $('#hour-4');
-  var hour5 = $('#hour-5');
+  var hour1 = $('#hour-13');
+  var hour2 = $('#hour-14');
+  var hour3 = $('#hour-15');
+  var hour4 = $('#hour-16');
+  var hour5 = $('#hour-17');
 
   $('.saveBtn').on('click', function () {
     console.log('button listener works');
@@ -44,6 +44,15 @@ $(function () {
     // Get the value of the plans from this hour 
     var timeEvent = $(this).siblings('.description').val();
     console.log(timeEvent);
+    // Save the plans in local storage using id
+    localStorage.setItem(timeBlock, timeEvent);
+  })
+
+  $('.time-block').each(function() {
+    var currentHour = dayjs().hour();
+    console.log(currentHour);
+    var blockHour = parseInt($(this).attr('id'));
+    console.log(blockHour);
   })
 });
 
