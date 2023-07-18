@@ -62,7 +62,14 @@ $(function () {
     }
   })
 
-  
+  // Get any user input saved in localStorage
+  $('.time-block').each(function() {
+    var timeBlock = $(this).attr('id');
+    var potentialText = localStorage.getItem(timeBlock);
+    if (potentialText) {
+      $(this).find('.description').val(potentialText);
+    }
+  })
 });
 
 // Have global variable containing current time
