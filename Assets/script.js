@@ -20,25 +20,32 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+
+  // Setup time on top 
+  var today = dayjs();
+  $('#currentDay').text('Calender for today: ' + today.format('MMM D, YYYY'));
+
+  // Add listener 
+  var hour9 = $('#hour-9');
+  var hour10 = $('#hour-10');
+  var hour11 = $('#hour-11');
+  var hour12 = $('#hour-12');
+  var hour1 = $('#hour-1');
+  var hour2 = $('#hour-2');
+  var hour3 = $('#hour-3');
+  var hour4 = $('#hour-4');
+  var hour5 = $('#hour-5');
+
+  $('.saveBtn').on('click', function () {
+    console.log('button listener works');
+    // Get the id of the parent time-block
+    var timeBlock = $(this).parent().attr('id');
+    console.log(timeBlock);
+    // Get the value of the plans from this hour 
+    var timeEvent = $(this).siblings('.description').val();
+    console.log(timeEvent);
+  })
 });
-
-// Setup time on top 
-var today = dayjs();
-$('#currentDay').text('Calender for today: ' + today.format('MMM D, YYYY'));
-
-// Add listener 
-var hour9 = $('#hour-9');
-var hour10 = $('#hour-10');
-var hour11 = $('#hour-11');
-var hour12 = $('#hour-12');
-var hour1 = $('#hour-1');
-var hour2 = $('#hour-2');
-var hour3 = $('#hour-3');
-var hour4 = $('#hour-4');
-var hour5 = $('#hour-5');
-
-
-
 
 // Have global variable containing current time
 // Run for-loop through each till specific hour is found 
