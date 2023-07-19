@@ -7,13 +7,10 @@ $(function () {
   // useful when saving the description in local storage?
   
   $('.saveBtn').on('click', function () {
-    console.log('button listener works');
     // Get the id of the parent time-block
     var timeBlock = $(this).parent().attr('id');
-    console.log(timeBlock);
     // Get the value of the plans from this hour 
     var timeEvent = $(this).siblings('.description').val();
-    console.log(timeEvent);
     // Save the plans in local storage using id
     localStorage.setItem(timeBlock, timeEvent);
   })
@@ -25,10 +22,11 @@ $(function () {
   // current hour in 24-hour time?
 
   $('.time-block').each(function() {
+    // Use dayjs() to get the current time, only the hour for comparison
     var currentHour = dayjs().hour();
-    console.log(currentHour);
+    // Get the id of each time block, all will be compared with the current hour 
     var blockHour = parseInt($(this).attr('id'));
-    console.log(blockHour);
+    // Conditional used to decide color for each time block
     if (currentHour > blockHour) {
       $(this).attr('class', 'row time-block past');
     } else if (currentHour === blockHour) {
@@ -44,16 +42,20 @@ $(function () {
   
   // Get any user input saved in localStorage
   $('.time-block').each(function() {
+    // Variable created to get the id for every time block
     var timeBlock = $(this).attr('id');
+    // Retrieves any data that could be in local storage, under ead time block's id
     var potentialText = localStorage.getItem(timeBlock);
+    // If there is any data, it will be taken and placed into the 'description portion'
     if (potentialText) {
-      $(this).find('.description').val(potentialText);
+      $(this).find('.description').text(potentialText);
     }
   })
 
   // TODO: Add code to display the current date in the header of the page.
 
-  // Setup time on top 
+  // Create variable to contain current time  
   var today = dayjs();
+  // Use id from open header portion to hold the current date
   $('#currentDay').text('Calender for today: ' + today.format('MMM D, YYYY'));
 });
