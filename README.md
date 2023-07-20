@@ -1,1 +1,2 @@
-# Work Day Scheduler Starter Code
+Welcome to my Work Day Schedule Planner. My website promotes efficient event organiation and productivity! This intuitive daily planner lets you list all important and easy-to-forget events effortlessly. Whether from a professional, educational or other background, this user-friendly interface makes tracking all commitments a breeze. Embrace the simplicity and ease for increased productivity and success. 
+
